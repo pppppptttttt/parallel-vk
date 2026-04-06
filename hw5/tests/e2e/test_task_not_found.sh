@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+source "${SCRIPT_DIR}/common.sh"
+
+setup_case "$@"
+start_server "${SCRIPT_DIR}/scenarios/task_not_found.json"
+run_client_sync
+assert_client_exit 0
+wait_server 0
+assert_transcript_equals $'HELLO 1000000\nNOT_FOUND\n'
+print_ok "task_not_found"

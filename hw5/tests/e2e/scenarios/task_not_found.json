@@ -1,0 +1,9 @@
+{
+  "timeout": 10.0,
+  "steps": [
+    { "action": "expect", "line": "HELLO 1000000" },
+    { "action": "send", "line": "TASK b6f70265980a19baaada8438ce8441ea5c7e7041 A00 A05" },
+    { "action": "expect", "line": "NOT_FOUND" },
+    { "action": "send", "line": "DONE" }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "timeout": 10.0,
+  "steps": [
+    { "action": "expect", "line": "HELLO 1000000" },
+    { "action": "send", "line": "TASK 5e0fdd90d20065a4c95c774d5bb86de5b1014165 Z A" },
+    { "action": "expect", "line": "ERROR BAD_TASK invalid_range" }
+  ]
+}
