@@ -114,15 +114,14 @@ int64_t run(const std::string &mode, const Matrix &m) {
 }  // namespace
 
 int main(int argc, const char *argv[]) {
-    if (argc != 4) {
+    if (argc != 3) {
         std::cerr << "Usage: " << argv[0]
-                  << " rows|cols|cols_opt MATRIX_SIZE REPEATS\n";
+                  << " rows|cols|cols_opt MATRIX_SIZE\n";
         return 1;
     }
 
     const std::string mode = argv[1];
     const std::size_t size = std::stoull(argv[2]);
-    const int repeats = std::stoi(argv[3]);
 
     const Matrix m = generate_matrix(size, size);
 
@@ -131,7 +130,6 @@ int main(int argc, const char *argv[]) {
 
     std::cout << "mode: " << mode << '\n';
     std::cout << "size: " << size << "x" << size << '\n';
-    std::cout << "repeats: " << repeats << '\n';
     std::cout << "time_ns: " << ns << '\n';
     std::cout << "time_ms: " << ns / 1'000'000.0 << '\n';
     std::cout << "checksum: " << checksum << '\n';
